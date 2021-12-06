@@ -10,6 +10,7 @@ public class PersonVO {
 	}
 
 	public PersonVO(String name, int age, String address) {
+		super();
 		this.name = name;
 		this.age = age;
 		this.address = address;
