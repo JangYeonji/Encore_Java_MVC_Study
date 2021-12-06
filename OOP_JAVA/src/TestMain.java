@@ -1,4 +1,4 @@
-import test.mode.dao.TestDAO;
+import test.model.dao.TestDAO;
 import test.model.vo.TestVO;
 
 public class TestMain {

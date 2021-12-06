@@ -1,4 +1,4 @@
-package test.mode.dao;
+package test.model.dao;
 
 import test.model.vo.TestVO;
 
