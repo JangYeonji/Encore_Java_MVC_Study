@@ -1,16 +1,15 @@
 package test.model.vo;
 
-public class TestVO {   //데이터 담는 그릇
+public class PersonVO {
 	private String name;
 	private int age;
 	private String address;
 	
-	//Default Constructor(생성자)
-	public TestVO() {
+	public PersonVO() {
 		
 	}
-	//Special Constructor
-	public TestVO(String name, int age, String address) {
+
+	public PersonVO(String name, int age, String address) {
 		this.name = name;
 		this.age = age;
 		this.address = address;
@@ -40,7 +39,7 @@ public class TestVO {   //데이터 담는 그릇
 		this.address = address;
 	}
 	
-	public String info() {
+	public String perInfo() {
 		return name + "\t" + age + "\t" + address;
 	}
 }
