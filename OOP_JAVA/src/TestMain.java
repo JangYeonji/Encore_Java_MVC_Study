@@ -1,3 +1,4 @@
+import test.mode.dao.TestDAO;
 import test.model.vo.TestVO;
 
 public class TestMain {
@@ -10,6 +11,14 @@ public class TestMain {
 		
 //		String info = instance.info();
 //		System.out.println(info);
+		
+		TestDAO dao = new TestDAO();
+		int flag = dao.insertRow(instance);
+		if (flag != 0) {
+			System.out.println("1 row insert ok!!");
+		}else {
+			System.out.println("1 row insert error!!");
+		}
 	}
 
 }
