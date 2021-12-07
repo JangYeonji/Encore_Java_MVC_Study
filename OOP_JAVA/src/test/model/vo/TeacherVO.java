@@ -19,4 +19,9 @@ public class TeacherVO extends PersonVO{
 	public String teaInfo() {
 		return super.perInfo() + "\t" + subject;
 	}
+	
+	@Override
+	public String perInfo() {
+		return super.perInfo() + "\t" + subject;
+	}
 }

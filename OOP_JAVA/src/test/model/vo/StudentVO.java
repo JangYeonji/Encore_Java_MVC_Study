@@ -22,4 +22,9 @@ public class StudentVO extends PersonVO{
 	public String stuInfo() {
 		return super.perInfo() + "\t" + ssn;
 	}
+	
+	@Override
+	public String perInfo() {
+		return super.perInfo() + "\t" + ssn;
+	}
 }

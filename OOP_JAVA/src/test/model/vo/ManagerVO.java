@@ -19,4 +19,9 @@ public class ManagerVO extends PersonVO{
 	public String empInfo() {
 		return super.perInfo() + "\t" + dept;
 	}
+	
+	@Override
+	public String perInfo() {
+		return super.perInfo() + "\t" + dept;
+	}
 }
