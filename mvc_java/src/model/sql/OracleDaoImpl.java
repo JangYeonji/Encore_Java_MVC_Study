@@ -34,6 +34,7 @@ public class OracleDaoImpl implements OracleDao {
 	
 	@Override
 	public int insertRow(Object obj) {
+		System.out.println("dao insertRow");
 		Connection        conn  = null ; 
 		PreparedStatement pstmt = null ;
 		int flag = 0 ; 
