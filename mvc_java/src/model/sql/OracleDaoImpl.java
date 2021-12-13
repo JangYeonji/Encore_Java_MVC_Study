@@ -77,8 +77,9 @@ public class OracleDaoImpl implements OracleDao {
 			conn = DriverManager.getConnection(URL, USER, PASSWD);
 			pstmt = conn.prepareStatement(updateSQL);
 			
-			pstmt.setString(1, ((BbsVO)obj).getWriter());
-			pstmt.setInt(2, ((BbsVO)obj).getSeq());
+			pstmt.setString(1, ((BbsVO)obj).getSubject());
+			pstmt.setString(2, ((BbsVO)obj).getContent());
+			pstmt.setInt(3, ((BbsVO)obj).getSeq());
 			flag = pstmt.executeUpdate();
 			
 		}catch(Exception e) {
@@ -163,11 +164,37 @@ public class OracleDaoImpl implements OracleDao {
 		return list;
 	}
 	private void upCnt(Object obj) {
-		
+		System.out.println("dao upCnt viewcnt ++");
+		Connection        conn  = null ; 
+		PreparedStatement pstmt = null ;
+		String upCntSQL = "UPDATE BBS_TBL "
+				+ "SET VIEWCNT = VIEWCNT + 1"
+				+ "WHERE SEQ = ?";
+		try {
+			conn = DriverManager.getConnection(URL, USER, PASSWD);
+			pstmt = conn.prepareStatement(upCntSQL);
+			pstmt.setInt(1, ((BbsVO)obj).getSeq());
+			int flag = pstmt.executeUpdate();
+			System.out.println("update viewcnt = " + flag);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(conn != null) {
+					conn.close();
+				}
+			}catch(Exception ee) {
+				ee.printStackTrace();
+			}
+		}
 	}
 
 	@Override
 	public Object selectRow(Object obj) {
+		System.out.println("dao selectRow");
+		
+		upCnt(obj);
+		
 		Connection        conn  = null ; 
 		PreparedStatement pstmt = null ;
 		ResultSet		  rset  = null ; 

@@ -8,6 +8,7 @@ import model.vo.BbsVO;
 
 public class View {
 	private FrontController fc;
+	private int articleSeq;
 	public View() {
 		fc = new FrontController();
 	}
@@ -60,13 +61,20 @@ public class View {
 		System.out.println("insert result : " + result);
 	}
 	public void update() {
+		System.out.println();
 		System.out.println(">>게시물 수정<<");
+		System.out.println();
+		
 		Scanner scan = new Scanner(System.in);
-		System.out.println("수정할 것");
-		String update = scan.nextLine();
+		System.out.print("수정할 제목 : ");
+		String subject = scan.nextLine();
+		System.out.print("수정할 내용 : ");
+		String content = scan.nextLine();
 		
 		BbsVO bbs = new BbsVO();
-		bbs.setContent(update);
+		bbs.setSeq(articleSeq);
+		bbs.setSubject(subject);
+		bbs.setContent(content);
 		
 		Object result = fc.requestProc(2, bbs);
 		System.out.println("updqte result : " + result);
@@ -106,5 +114,8 @@ public class View {
 		bbs.setSeq(seq);
 		Object obj = fc.requestProc(5, bbs);
 		System.out.println(((BbsVO)obj).info());
+		
+		//수정을 위한 게시글 번호를 저장하는 코드
+		articleSeq = ((BbsVO)obj).getSeq();
 	}
 }
