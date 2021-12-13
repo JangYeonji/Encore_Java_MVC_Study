@@ -4,16 +4,18 @@ import ctrl.util.Controller;
 import service.BbsService;
 import service.BbsServiceImpl;
 
-public class UpdateCtrl implements Controller {
+public class ReadCtrl implements Controller{
+
+	//dependency injection
 	private BbsService service;
-	public UpdateCtrl() {
+	public ReadCtrl() {
 		service = new BbsServiceImpl();
 	}
+		
 	@Override
 	public Object execute(Object obj) {
-		System.out.println("update ctrl execute");
-		
-		return service.updateBiz(obj);
+		System.out.println("read ctrl execute~~");
+		return service.selectBiz(obj);
 	}
 
 }

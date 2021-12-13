@@ -69,7 +69,10 @@ public class OracleDaoImpl implements OracleDao {
 		Connection        conn  = null ; 
 		PreparedStatement pstmt = null ;
 		int flag = 0 ; 
-		String updateSQL = "UPDATE BBS_TBL SET WRITTER=? WHERE SEQ=?";
+//		String updateSQL = "UPDATE BBS_TBL SET WRITTER=? WHERE SEQ=?";
+		String updateSQL = "UPDATE BBS_TBL "
+				+ " SET SUBJECT = ?, CONTENT = ?, REGDATE = SYSDATE "
+				+ " WHERE SEQ = ?";
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASSWD);
 			pstmt = conn.prepareStatement(updateSQL);
@@ -158,6 +161,9 @@ public class OracleDaoImpl implements OracleDao {
 			}
 		}
 		return list;
+	}
+	private void upCnt(Object obj) {
+		
 	}
 
 	@Override

@@ -61,9 +61,30 @@ public class View {
 	}
 	public void update() {
 		System.out.println(">>게시물 수정<<");
+		Scanner scan = new Scanner(System.in);
+		System.out.println("수정할 것");
+		String update = scan.nextLine();
+		
+		BbsVO bbs = new BbsVO();
+		bbs.setContent(update);
+		
+		Object result = fc.requestProc(2, bbs);
+		System.out.println("updqte result : " + result);
 	}
 	public void delete() {
+		System.out.println();
 		System.out.println(">>게시물 삭제<<");
+		System.out.println();
+		
+		Scanner scan = new Scanner(System.in);
+		System.out.println("게시글 번호(SEQ) : ");
+		int seq = scan.nextInt();
+		
+		BbsVO bbs = new BbsVO();
+		bbs.setSeq(seq);
+		Object result = fc.requestProc(3, bbs);
+		
+		System.out.println("delete result : " + result);
 	}
 	public void select() {
 		System.out.println(">>게시물 목록<<");
@@ -73,6 +94,17 @@ public class View {
 		}
 	}
 	public void read() {
+		System.out.println();
 		System.out.println(">>게시물 상세<<");
+		System.out.println();
+		
+		Scanner scan = new Scanner(System.in);
+		System.out.print("게시글 번호(SEQ) : ");
+		int seq = scan.nextInt();
+		
+		BbsVO bbs = new BbsVO();
+		bbs.setSeq(seq);
+		Object obj = fc.requestProc(5, bbs);
+		System.out.println(((BbsVO)obj).info());
 	}
 }

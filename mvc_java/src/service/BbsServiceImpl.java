@@ -21,13 +21,13 @@ public class BbsServiceImpl implements BbsService{
 	@Override
 	public int updateBiz(Object obj) {
 		System.out.println("service updateBiz");
-		return 0;
+		return dao.updateRow(obj);
 	}
 
 	@Override
 	public int deleteBiz(Object obj) {
 		System.out.println("service deleteBiz");
-		return 0;
+		return dao.deleteRow(obj);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class BbsServiceImpl implements BbsService{
 	@Override
 	public Object selectBiz(Object obj) {
 		System.out.println("service selectBiz read");
-		return null;
+		return dao.selectRow(obj);
 	}
 	
 }

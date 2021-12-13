@@ -3,6 +3,8 @@ package ctrl.util;
 import java.util.HashMap;
 import java.util.Map;
 
+import ctrl.DeleteCtrl;
+import ctrl.ReadCtrl;
 import ctrl.SelectCtrl;
 import ctrl.UpdateCtrl;
 import ctrl.WriteCtrl;
@@ -17,7 +19,9 @@ public class BeanFactory {
 		map = new HashMap<>();
 		map.put(1, new WriteCtrl());
 		map.put(2, new UpdateCtrl());
+		map.put(3, new DeleteCtrl());
 		map.put(4, new SelectCtrl());
+		map.put(5, new ReadCtrl());
 	}
 	public synchronized static BeanFactory getInstance() {
 		if(instance == null) {
