@@ -13,14 +13,17 @@ public class WriteCtrl implements Controller{
 	}
 
 	@Override
-	public void execute() {
+	public void execute(Object obj) {
 		System.out.println("write ctrl execute");
-		BbsVO bbs = new BbsVO();
-		bbs.setSubject("맛점하세요");
-		bbs.setContent("오늘은 짜장면으로");
-		bbs.setWriter("admin");
-		bbs.setViewcnt(0);
-		int flag = service.insertBiz(bbs);
+		
+//		BbsVO bbs = new BbsVO();   			//View에서 실행
+//		bbs.setSubject("맛점하세요");
+//		bbs.setContent("오늘은 짜장면으로");
+//		bbs.setWriter("admin");
+//		bbs.setViewcnt(0);
+//		int flag = service.insertBiz(bbs);
+		
+		int flag = service.insertBiz(obj);
 		System.out.println("insert flag >> " + flag);
 	}
 	

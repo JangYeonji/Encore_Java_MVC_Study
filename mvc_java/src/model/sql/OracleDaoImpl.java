@@ -38,7 +38,7 @@ public class OracleDaoImpl implements OracleDao {
 		Connection        conn  = null ; 
 		PreparedStatement pstmt = null ;
 		int flag = 0 ; 
-		String insertSQL = "INSERT INTO BBS_TBL VALUES(BBS_SEQ.NEXTVAL,?,?,?,SYSDATE,?)" ;
+		String insertSQL = "INSERT INTO BBS_TBL VALUES(BBS_SEQ.NEXTVAL,?,?,?,SYSDATE,0)" ;
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASSWD) ;
 			pstmt = conn.prepareStatement(insertSQL) ; 
@@ -46,7 +46,7 @@ public class OracleDaoImpl implements OracleDao {
 			pstmt.setString(1, ((BbsVO)obj).getSubject());   //부모는 자식에 접근 못하니까 다운캐스팅 함
 			pstmt.setString(2, ((BbsVO)obj).getContent());
 			pstmt.setString(3, ((BbsVO)obj).getWriter());
-			pstmt.setInt(4, ((BbsVO)obj).getViewcnt());
+//			pstmt.setInt(4, ((BbsVO)obj).getViewcnt());
 			
 			flag = pstmt.executeUpdate() ; 
 						

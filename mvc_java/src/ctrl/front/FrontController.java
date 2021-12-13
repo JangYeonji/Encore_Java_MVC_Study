@@ -9,8 +9,8 @@ public class FrontController {
 	public FrontController() {
 		factory = BeanFactory.getInstance();
 	}
-	public void requestProc(int code) {
+	public void requestProc(int code, Object obj) {
 		Controller ctrl = factory.getBean(code);
-		ctrl.execute();
+		ctrl.execute(obj);
 	}
 }

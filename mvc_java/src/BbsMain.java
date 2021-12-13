@@ -1,4 +1,5 @@
 import ctrl.front.FrontController;
+import view.View;
 
 public class BbsMain {
 
@@ -6,7 +7,8 @@ public class BbsMain {
 //		FrontController fc = new FrontController();   //view 대신
 //		fc.requestProc(1);
 		
-		
+		View view = new View();
+		view.mainMenu();
 	}
 
 }
