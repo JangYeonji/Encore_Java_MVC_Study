@@ -125,7 +125,13 @@ public class OracleDaoImpl implements OracleDao {
 		PreparedStatement pstmt = null ;
 		ResultSet		  rset  = null ; 
 		List<Object> list       = new ArrayList() ;  
-		String selectSQL = "SELECT * FROM BBS_TBL";
+		String selectSQL = "SELECT "
+				+ " SEQ, SUBJECT, CONTENT, WRITTER, "
+				+ " TO_CHAR(REGDATE, 'YYYY-MM-DD'), "
+				+ " VIEWCNT "
+				+ " FROM BBS_TBL "
+				+ " ORDER BY SEQ DESC" ;
+
 		try {
 			conn = DriverManager.getConnection(URL,USER,PASSWD);
 			pstmt = conn.prepareStatement(selectSQL) ; 

@@ -33,7 +33,7 @@ public class BbsServiceImpl implements BbsService{
 	@Override
 	public List<Object> selectBiz() {
 		System.out.println("service selectBiz");
-		return null;
+		return dao.selectRow();
 	}
 
 	@Override

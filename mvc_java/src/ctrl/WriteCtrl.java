@@ -13,7 +13,7 @@ public class WriteCtrl implements Controller{
 	}
 
 	@Override
-	public void execute(Object obj) {
+	public Object execute(Object obj) {
 		System.out.println("write ctrl execute");
 		
 //		BbsVO bbs = new BbsVO();   			//View에서 실행
@@ -23,8 +23,10 @@ public class WriteCtrl implements Controller{
 //		bbs.setViewcnt(0);
 //		int flag = service.insertBiz(bbs);
 		
-		int flag = service.insertBiz(obj);
-		System.out.println("insert flag >> " + flag);
+//		int flag = service.insertBiz(obj);
+//		System.out.println("insert flag >> " + flag);
+		
+		return service.insertBiz(obj);
 	}
 	
 }

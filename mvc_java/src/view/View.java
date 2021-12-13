@@ -1,5 +1,6 @@
 package view;
 
+import java.util.List;
 import java.util.Scanner;
 
 import ctrl.front.FrontController;
@@ -54,7 +55,9 @@ public class View {
 		bbs.setContent(content);
 		bbs.setWriter(writer);
 		
-		fc.requestProc(1, bbs);
+		Object result = fc.requestProc(1, bbs);
+		
+		System.out.println("insert result : " + result);
 	}
 	public void update() {
 		System.out.println(">>게시물 수정<<");
@@ -64,6 +67,10 @@ public class View {
 	}
 	public void select() {
 		System.out.println(">>게시물 목록<<");
+		List<Object> list = (List<Object>)fc.requestProc(4, null);
+		for(Object obj : list) {
+			System.out.println(((BbsVO)obj).info());
+		}
 	}
 	public void read() {
 		System.out.println(">>게시물 상세<<");

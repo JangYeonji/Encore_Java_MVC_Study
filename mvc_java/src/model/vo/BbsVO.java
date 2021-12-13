@@ -61,7 +61,10 @@ public class BbsVO {
 		return "BbsVO [seq=" + seq + ", viewcnt=" + viewcnt + ", subject=" + subject + ", content=" + content
 				+ ", writer=" + writer + ", regdate=" + regdate + "]";
 	}
-	
+	public String info() {
+		return "BbsVO [seq=" + seq + ", viewcnt=" + viewcnt + ", subject=" + subject
+				+ ", writer=" + writer + ", regdate=" + regdate + "]";
+	}
 	
 	
 }
