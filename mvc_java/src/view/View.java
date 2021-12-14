@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import ctrl.front.FrontController;
 import model.vo.BbsVO;
+import model.vo.FilterVO;
 
 public class View {
 	private FrontController fc;
@@ -20,6 +21,7 @@ public class View {
 			System.out.println("3. 게시물 삭제");
 			System.out.println("4. 게시물 목록");
 			System.out.println("5. 게시물 상세");
+			System.out.println("6. 게시물 찾기");
 			System.out.println("99. 프로그램 종료");
 			System.out.print("SELECT NUMBER ==> ");
 			Scanner scan = new Scanner(System.in);
@@ -35,11 +37,14 @@ public class View {
 				select(); break;
 			case 5:
 				read(); break;
+			case 6:
+				search(); break;
 			case 99:
 				System.exit(1);
 			}
 		}
 	}
+	
 	public void insert() {
 		System.out.println(">>게시물 작성<<");
 
@@ -117,5 +122,22 @@ public class View {
 		
 		//수정을 위한 게시글 번호를 저장하는 코드
 		articleSeq = ((BbsVO)obj).getSeq();
+	}
+	public void search() {
+		System.out.print("필터조건 입력(제목 or 작성자) ");
+		Scanner scan = new Scanner(System.in);
+		String searchCondition = scan.nextLine();
+		
+		System.out.print("검색 키워드 입력 >>> ");
+		String searchKeyword = scan.nextLine();
+		
+		FilterVO filter = new FilterVO(searchCondition, searchKeyword);
+		List<Object> list = (List<Object>)fc.requestProc(6, filter);
+		if (list != null) {
+			for (Object obj : list) {
+				System.out.println(((BbsVO)obj).info());
+			}
+		}
+		
 	}
 }

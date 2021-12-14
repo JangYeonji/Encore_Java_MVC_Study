@@ -51,11 +51,14 @@ VALUES(BBS_SEQ.NEXTVAL,'삭제','delete','M',sysdate,0);
 select * from BBS_TBL;
 
 
+/*
+ * dynamic query
+ * FILTER CONDITION - SUBJECT OR WRITTER
+ * KEYWORD			- 사용자의 입력
+ * */
 
 
+SELECT * FROM BBS_TBL WHERE SUBJECT LIKE '%휴강%';
 
 
-
-
-
-
+SELECT * FROM BBS_TBL WHERE SUBJECT='수정함';

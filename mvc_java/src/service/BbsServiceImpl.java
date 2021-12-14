@@ -41,5 +41,11 @@ public class BbsServiceImpl implements BbsService{
 		System.out.println("service selectBiz read");
 		return dao.selectRow(obj);
 	}
+
+	@Override
+	public List<Object> searchBiz(Object obj) {
+		System.out.println("service searchBiz");
+		return dao.searchRow(obj);
+	}
 	
 }

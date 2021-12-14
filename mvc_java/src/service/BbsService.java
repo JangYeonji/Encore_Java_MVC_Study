@@ -10,4 +10,5 @@ public interface BbsService {
 	//Select
 	public List<Object> selectBiz();
 	public Object selectBiz(Object obj);
+	public List<Object> searchBiz(Object obj);
 }

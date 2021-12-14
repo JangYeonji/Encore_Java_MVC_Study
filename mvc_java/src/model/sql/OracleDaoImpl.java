@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.vo.BbsVO;
-import model.vo.UserVO;
+import model.vo.FilterVO;
 
 public class OracleDaoImpl implements OracleDao {
 	
@@ -163,6 +163,7 @@ public class OracleDaoImpl implements OracleDao {
 		}
 		return list;
 	}
+	
 	private void upCnt(Object obj) {
 		System.out.println("dao upCnt viewcnt ++");
 		Connection        conn  = null ; 
@@ -205,6 +206,7 @@ public class OracleDaoImpl implements OracleDao {
 			pstmt = conn.prepareStatement(selectSQL) ; 
 			
 			pstmt.setInt(1, ((BbsVO)obj).getSeq()); 
+			
 			rset = pstmt.executeQuery() ; 
 			
 			while(rset.next()) {
@@ -230,6 +232,71 @@ public class OracleDaoImpl implements OracleDao {
 			}
 		}
 		return row;
+	}
+
+	@Override
+	public List<Object> searchRow(Object obj) {
+		System.out.println("dao searchRow");
+		Connection        conn  = null ; 
+		PreparedStatement pstmt = null ;
+		ResultSet		  rset  = null ; 
+		List<Object> list       = new ArrayList() ;  
+		
+		String SQL = "SELECT SEQ,SUBJECT,CONTENT, WRITTER, TO_CHAR(REGDATE, 'YYYY-MM-DD'), VIEWCNT FROM BBS_TBL";
+		
+		if (((FilterVO)obj).getSearchCondition().equals("제목")) {
+			SQL += " WHERE SUBJECT LIKE '%'||?||'%'";
+		}else {
+			SQL += " WHERE WRITTER LIKE '%'||?||'%'";
+		}
+		SQL += " ORDER BY SEQ DESC";
+		
+		try {
+			conn = DriverManager.getConnection(URL,USER,PASSWD);
+			pstmt = conn.prepareStatement(SQL) ; 
+			pstmt.setString(1, ((FilterVO)obj).getSearchKeyword()); 
+			
+//		String writterSQL = "SELECT * FROM BBS_TBL WHERE WRITTER LIKE ?";
+//		String subjectSQL = "SELECT * FROM BBS_TBL WHERE SUBJECT LIKE ?";
+//		try {
+//			conn = DriverManager.getConnection(URL,USER,PASSWD);
+//			
+//			if(((FilterVO)obj).getSearchCondition().equals("제목")) {
+//				pstmt = conn.prepareStatement(subjectSQL) ; 
+//			}else if(((FilterVO)obj).getSearchCondition().equals("작성자")) {
+//				pstmt = conn.prepareStatement(writterSQL) ; 
+//			}
+//			else {
+//				System.out.println("제목 또는 작성자를 입력해주세요");
+//				return null;
+//			}
+//			 
+//			pstmt.setString(1, "%"+((FilterVO)obj).getSearchKeyword()+"%"); 
+			
+			rset = pstmt.executeQuery() ; 
+			
+			while(rset.next()) {
+				list.add(new BbsVO(
+					rset.getInt(1),
+					rset.getInt(6),
+					rset.getString(2),
+					rset.getString(3),
+					rset.getString(4),
+					rset.getString(5)));
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(conn != null) {
+					conn.close();
+				}
+			}catch(Exception ee) {
+				ee.printStackTrace();
+			}
+		}
+		return list;
 	}
 
 

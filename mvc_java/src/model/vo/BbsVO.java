@@ -4,7 +4,7 @@ package model.vo;
  * @author jyj98
  *
  */
-public class BbsVO {
+public class BbsVO extends FilterVO{
 	private int seq, viewcnt;
 	private String subject,content, writer, regdate;
 	public BbsVO() {
@@ -56,6 +56,7 @@ public class BbsVO {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
+	
 	@Override
 	public String toString() {
 		return "BbsVO [seq=" + seq + ", viewcnt=" + viewcnt + ", subject=" + subject + ", content=" + content

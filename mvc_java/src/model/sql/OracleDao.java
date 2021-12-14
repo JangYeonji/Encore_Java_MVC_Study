@@ -9,7 +9,8 @@ public interface OracleDao {
 	public int deleteRow(Object obj) ;
 	// Select
 	public List<Object> selectRow() ; 
-	public Object		selectRow(Object obj) ; 
+	public Object		selectRow(Object obj) ;
+	public List<Object> searchRow(Object obj); 
 }
 
 
