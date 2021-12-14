@@ -9,6 +9,7 @@ import ctrl.SearchCtrl;
 import ctrl.SelectCtrl;
 import ctrl.UpdateCtrl;
 import ctrl.WriteCtrl;
+import service.BbsServiceImpl;
 
 //1.insert, 2.update, 3.delete, 4.list, 5.read, 6.finder
 public class BeanFactory {
@@ -24,6 +25,9 @@ public class BeanFactory {
 		map.put(4, new SelectCtrl());
 		map.put(5, new ReadCtrl());
 		map.put(6, new SearchCtrl());
+		
+		//service instance create
+//		map.put(100, new BbsServiceImpl());
 	}
 	public synchronized static BeanFactory getInstance() {
 		if(instance == null) {

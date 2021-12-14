@@ -1,6 +1,7 @@
 package ctrl;
 
 import ctrl.util.Controller;
+import ctrl.util.ServiceFactory;
 import model.vo.BbsVO;
 import service.BbsService;
 import service.BbsServiceImpl;
@@ -9,7 +10,9 @@ public class WriteCtrl implements Controller{
 	//dependency injection
 	private BbsService service;
 	public WriteCtrl() {
-		service = new BbsServiceImpl();
+//		service = new BbsServiceImpl();
+		ServiceFactory factory = ServiceFactory.getInstance();
+		service = factory.getBean("bbs");
 	}
 
 	@Override
