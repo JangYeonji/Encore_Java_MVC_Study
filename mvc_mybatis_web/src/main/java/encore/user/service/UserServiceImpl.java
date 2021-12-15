@@ -6,9 +6,9 @@ import encore.user.model.vo.UserVO;
 public class UserServiceImpl implements UserService{
 
 	@Override
-	public UserVO loginService(UserDTO user) {
+	public UserVO loginService(UserDTO obj) {
 		System.out.println("user service login");
-		return null;
+		return new UserVO();
 	}
 
 }
