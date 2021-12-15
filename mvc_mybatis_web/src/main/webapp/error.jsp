@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	섭섭이와 함께하는 즐거운 WEB
+fail
 </body>
 </html>
