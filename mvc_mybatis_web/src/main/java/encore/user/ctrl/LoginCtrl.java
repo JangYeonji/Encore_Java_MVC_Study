@@ -23,7 +23,7 @@ public class LoginCtrl implements Controller{
 		System.out.println(">>>> login ctrl execute");
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
-		System.out.println(">>>> param " + id + "\t" + pwd);
+		System.out.println(">>>> param id : " + id + "\t pwd : " + pwd);
 		
 		//1.
 		//return new View("test.jsp",true);
@@ -33,6 +33,8 @@ public class LoginCtrl implements Controller{
 		UserDTO param = new UserDTO(id,pwd);
 //		UserVO user = service.loginService(param);
 		Object user = service.loginService(param);
+		System.out.println(">>>> result : " + ((UserVO)user));
+		
 		View view = new View();
 		if(user != null) {
 			view.setPath("ok.jsp");

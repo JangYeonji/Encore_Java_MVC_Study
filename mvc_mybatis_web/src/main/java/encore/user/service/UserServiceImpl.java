@@ -12,7 +12,7 @@ public class UserServiceImpl implements UserService{
 	}
 	@Override
 	public Object loginService(UserDTO obj) {
-		System.out.println("user service login");
+		System.out.println(">>>> user service login");
 //		return new UserVO();
 		return dao.loginRow(obj);
 	}
