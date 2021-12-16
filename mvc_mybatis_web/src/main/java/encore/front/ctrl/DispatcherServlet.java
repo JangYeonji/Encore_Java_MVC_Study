@@ -27,6 +27,7 @@ public class DispatcherServlet extends HttpServlet {
 	}
 
 	public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println();
 		System.out.println("front controller");
 		String uri = request.getRequestURI();
 		System.out.println("client request : " + uri);

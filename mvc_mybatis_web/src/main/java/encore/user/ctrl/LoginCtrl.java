@@ -31,7 +31,8 @@ public class LoginCtrl implements Controller{
 		//2.
 		//param 값을 dto 객체에 담는다
 		UserDTO param = new UserDTO(id,pwd);
-		UserVO user = service.loginService(param);
+//		UserVO user = service.loginService(param);
+		Object user = service.loginService(param);
 		View view = new View();
 		if(user != null) {
 			view.setPath("ok.jsp");
