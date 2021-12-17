@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import encore.user.model.vo.UserVO;
+
 public class UserDaoImpl implements UserDao{
 	
 	private static SqlSessionFactory factory ; 
@@ -28,5 +30,10 @@ public class UserDaoImpl implements UserDao{
 		System.out.println(">>>> dao loginRow");
 		return session.selectOne("encore.user.loginRow", obj);   //T는 testDQM에서 지정한 namespace.id, obj는 parameterType로 넘겨줌
 	}
-
+	@Override
+	public int registerRow(UserVO user) {
+		System.out.println(">>>> dao registerRow");
+		return 0;
+	}
+	
 }

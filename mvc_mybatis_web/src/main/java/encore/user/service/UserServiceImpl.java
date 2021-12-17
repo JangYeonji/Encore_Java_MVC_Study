@@ -16,5 +16,10 @@ public class UserServiceImpl implements UserService{
 //		return new UserVO();
 		return dao.loginRow(obj);
 	}
+	@Override
+	public int registerService(UserVO user) {
+		System.out.println(">>>> user service register");
+		return dao.registerRow(user);
+	}
 
 }
