@@ -5,8 +5,10 @@ import java.util.Map;
 
 import encore.ctrl.util.Controller;
 import encore.intro.ctrl.IndexCtrl;
+import encore.user.ctrl.JoinCtrl;
 import encore.user.ctrl.LoginCtrl;
 import encore.user.ctrl.LogoutCtrl;
+import encore.user.ctrl.RegisterCtrl;
 
 public class BeanFactory {
 	private static BeanFactory instance;
@@ -18,6 +20,8 @@ public class BeanFactory {
 		map.put("/pjt/index.encore", new IndexCtrl());
 		map.put("/pjt/login.encore", new LoginCtrl());
 		map.put("/pjt/logout.encore", new LogoutCtrl());
+		map.put("/pjt/registerForm.encore", new RegisterCtrl());
+		map.put("/pjt/register.encore", new JoinCtrl());
 	}
 	public static BeanFactory getInstance() {
 		if(instance == null) {

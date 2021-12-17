@@ -37,6 +37,8 @@
 			<label>패스워드</label>
 			<input type="password" name="pwd" placeholder="패스워드"/>
 			<input type="submit" value="로그인"/>
+			&nbsp;
+			<a href="registerForm.encore">[회원가입]</a>
 		</form>
 	</c:if>
 	<c:if test="${ loginUser != null }">
