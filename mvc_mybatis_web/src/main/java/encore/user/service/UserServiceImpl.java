@@ -1,5 +1,7 @@
 package encore.user.service;
 
+import java.util.List;
+
 import encore.user.model.sql.UserDao;
 import encore.user.model.sql.UserDaoImpl;
 import encore.user.model.vo.UserDTO;
@@ -20,6 +22,11 @@ public class UserServiceImpl implements UserService{
 	public int registerService(UserVO user) {
 		System.out.println(">>>> user service register");
 		return dao.registerRow(user);
+	}
+	@Override
+	public List<Object> listService() {
+		System.out.println(">>>> service listService");
+		return dao.bbsListRow();
 	}
 
 }

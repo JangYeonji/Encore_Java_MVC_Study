@@ -12,6 +12,16 @@
 			WHERE ID=#{id} AND PWD=#{pwd} <!-- 세미콜론 절!!대 안됨. ? 대신 #{}를 씀 -->
 			<!-- id == user_dto의 getId() -->
 		</select>
+		
+		<insert id="insertRow" parameterType="user_vo">
+			INSERT INTO USER_TBL
+			VALUES (#{id},#{pwd},#{name},#{point})
+		</insert>
+		<select id="listRow" resultType="bbs_vo">
+			SELECT SEQ, SUBJECT, CONTENT, WRITTER, REGDATE, VIEWCNT
+			FROM BBS_TBL
+			ORDER BY SEQ DESC
+		</select>
 </mapper>
 
 

@@ -1,5 +1,7 @@
 package encore.user.model.sql;
 
+import java.util.List;
+
 //import는 ibatis
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -15,8 +17,7 @@ public class UserDaoImpl implements UserDao{
 	static {
 		System.out.println("------------------- mybatis loading --------------------"); 
 		try{
-			factory = new SqlSessionFactoryBuilder().build(
-		Resources.getResourceAsReader("resource/config/configuration.xml"));
+			factory = new SqlSessionFactoryBuilder().build(Resources.getResourceAsReader("resource/config/configuration.xml"));
 		}catch(Exception e) {
 			e.printStackTrace() ;
 		}
@@ -31,9 +32,14 @@ public class UserDaoImpl implements UserDao{
 		return session.selectOne("encore.user.loginRow", obj);   //T는 testDQM에서 지정한 namespace.id, obj는 parameterType로 넘겨줌
 	}
 	@Override
-	public int registerRow(UserVO user) {
+	public int registerRow(Object obj) {
 		System.out.println(">>>> dao registerRow");
-		return 0;
+		return session.insert("encore.user.insertRow", obj);
+	}
+	@Override
+	public List<Object> bbsListRow() {
+		System.out.println(">>>> user dao bbs list");
+		return session.selectList("encore.user.listRow");
 	}
 	
 }

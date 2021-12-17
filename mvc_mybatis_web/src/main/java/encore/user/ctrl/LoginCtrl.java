@@ -46,7 +46,7 @@ public class LoginCtrl implements Controller{
 			view.setPath("main.jsp");
 			view.setSend(true);
 		}else {
-			view.setPath("error.jsp");
+			view.setPath("main.jsp");
 			view.setSend(true);
 		}
 		

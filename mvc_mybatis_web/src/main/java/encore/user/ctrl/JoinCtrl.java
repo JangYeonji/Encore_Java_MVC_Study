@@ -22,6 +22,9 @@ public class JoinCtrl implements Controller{
 	@Override
 	public View execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println(">>>> join ctrl execute");
+		
+		request.setCharacterEncoding("UTF-8");
+		
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 		String name = request.getParameter("name");
@@ -32,6 +35,7 @@ public class JoinCtrl implements Controller{
 		
 		//insert
 		int flag = service.registerService(user);
+		System.out.println(">>>>insert result : " + flag);
 		View view = new View();
 		if(flag != 0) {
 			view.setPath("index.jsp");
