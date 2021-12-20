@@ -4,19 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="encore.bbs">
-		<select id="listRow" resultType="encore.bbs.model.vo.Bbs_vo">
-			SELECT SEQ, SUBJECT, CONTENT, WRITTER, REGDATE, VIEWCNT
+		<select id="listRow" resultType="bbs_vo">
+			SELECT SEQ, SUBJECT, CONTENT, WRITER, REGDATE, VIEWCNT
 			FROM BBS_TBL
 			ORDER BY SEQ DESC
 		</select>
+		
+		<insert id="insertRow" parameterType="bbs_vo" >
+			<selectKey keyProperty="seq" resultType="int" order="BEFORE">
+	        	select BBS_SEQ.NEXTVAL from dual
+	    	</selectKey>
+			INSERT INTO BBS_TBL
+			VALUES (#{seq}, #{subject}, #{content}, #{writer}, sysdate, 0)
+		</insert>
 </mapper>
-
-
-
-
-
-
-
 
 
 

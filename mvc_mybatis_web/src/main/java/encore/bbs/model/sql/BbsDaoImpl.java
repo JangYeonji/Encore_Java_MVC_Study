@@ -19,11 +19,19 @@ public class BbsDaoImpl implements BbsDao{
 			e.printStackTrace() ;
 		}
 	}
-	
+	public BbsDaoImpl() {
+		session = factory.openSession(true);
+		System.out.println(">>>> dao session : " + session);
+	}
 	@Override
 	public List<Object> listRow() {
-		System.out.println(">>>> user dao bbs list");
-		return session.selectList("encore.user.listRow");
+		System.out.println(">>>> bbs dao bbs list");
+		return session.selectList("encore.bbs.listRow");
+	}
+	@Override
+	public int insertRow(Object obj) {
+		System.out.println(">>>> bbs dao insertRow");
+		return session.insert("encore.bbs.insertRow", obj);
 	}
 
 }

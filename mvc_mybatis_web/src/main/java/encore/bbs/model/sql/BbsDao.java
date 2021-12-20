@@ -4,4 +4,5 @@ import java.util.List;
 
 public interface BbsDao {
 	public List<Object> listRow();
+	public int insertRow(Object obj);
 }
