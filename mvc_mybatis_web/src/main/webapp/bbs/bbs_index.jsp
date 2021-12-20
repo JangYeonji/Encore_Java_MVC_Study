@@ -37,7 +37,7 @@
 	<tr align=center bgcolor=#D0D0D0 height=120%>
 	<td width="15%"> 번 호 </td><td width="15%"> 이 름 </td><td width="35%"> 제 목</td><td width="20%"> 날 짜 </td><td width="15%">조회수</td>
 	</tr>
-		<c:forEach var="bbs" items="${ boards }" >
+	<c:forEach var="bbs" items="${ boards }" >
 		<tr> 
 			<td align=center>${bbs.seq}</td>
 			<td align=center>${ bbs.writer }</td>
@@ -45,7 +45,7 @@
 			<td align=center>${bbs.regdate }</td>
 			<td align=center>${bbs.viewcnt }</td>
 		</tr>
-		</c:forEach>
+	</c:forEach>
 	
 	<tr>
 		<td align="right" colspan="5"> 

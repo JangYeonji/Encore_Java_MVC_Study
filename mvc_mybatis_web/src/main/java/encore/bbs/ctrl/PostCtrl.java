@@ -34,11 +34,11 @@ public class PostCtrl implements Controller{
 		
 		int flag = service.postService(bbs);
 		View view = new View();
-		if(flag==1) {
-			view.setPath("bbs_index.jsp");
-			view.setSend(true);
+		if(flag!=0) {
+			view.setPath("list.encore");   //bbb_index.jsp로 바로 보내면 데이터를 들고 갈 수가 없음
+			view.setSend(false);   //redirect 시켜서 url을 바꾸는 것
 		}else {
-			view.setPath("post.jsp");
+			view.setPath("postForm.encore");
 			view.setSend(false);
 		}
 		return view;

@@ -20,5 +20,10 @@ public class BbsServiceImpl implements BbsService{
 		System.out.println(">>>> bbs service postService");
 		return dao.insertRow(obj);
 	}
+	@Override
+	public Object readService(Object obj) {
+		System.out.println(">>>> bbs service readService");
+		return dao.readRow(obj);
+	}
 
 }

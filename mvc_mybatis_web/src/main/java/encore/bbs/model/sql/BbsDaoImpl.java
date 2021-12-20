@@ -33,5 +33,10 @@ public class BbsDaoImpl implements BbsDao{
 		System.out.println(">>>> bbs dao insertRow");
 		return session.insert("encore.bbs.insertRow", obj);
 	}
+	@Override
+	public Object readRow(Object obj) {
+		System.out.println(">>>> bbs dao readRow");
+		return session.selectOne("encore.bbs.readRow", obj);
+	}
 
 }

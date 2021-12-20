@@ -11,12 +11,15 @@
 		</select>
 		
 		<insert id="insertRow" parameterType="bbs_vo" >
-			<selectKey keyProperty="seq" resultType="int" order="BEFORE">
-	        	select BBS_SEQ.NEXTVAL from dual
-	    	</selectKey>
 			INSERT INTO BBS_TBL
-			VALUES (#{seq}, #{subject}, #{content}, #{writer}, sysdate, 0)
+			VALUES (bbs_seq.nextval, #{subject}, #{content}, #{writer}, sysdate, 0)
 		</insert>
+		
+		<select id="readRow" resultType="bbs_vo">
+			SELECT SEQ, SUBJECT, CONTENT, WRITER, REGDATE, VIEWCNT
+			FROM BBS_TBL
+			WHERE SEQ=#{seq}
+		</select>
 </mapper>
 
 
