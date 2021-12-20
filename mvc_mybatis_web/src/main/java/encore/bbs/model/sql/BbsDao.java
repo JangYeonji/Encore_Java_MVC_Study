@@ -6,4 +6,6 @@ public interface BbsDao {
 	public List<Object> listRow();
 	public int insertRow(Object obj);
 	public Object readRow(Object obj);
+	public int deleteRow(Object obj);
+	public void upCntRow(Object obj);
 }

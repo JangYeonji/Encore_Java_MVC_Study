@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import encore.bbs.model.vo.BbsVO;
 import encore.bbs.service.BbsService;
 import encore.bbs.service.BbsServiceImpl;
 import encore.ctrl.util.Controller;
@@ -18,7 +19,16 @@ public class DeleteCtrl implements Controller{
 	}
 	@Override
 	public View execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		return null;
+		System.out.println(">>>> bbs ctrl delete");
+
+		BbsVO bbs = new BbsVO();
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		bbs.setSeq(seq);
+		System.out.println(seq);
+		
+		int flag = service.deleteService(bbs);
+		
+		return new View("list.encore",false);
 	}
 
 }

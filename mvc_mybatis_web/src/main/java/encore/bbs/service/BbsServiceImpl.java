@@ -25,5 +25,15 @@ public class BbsServiceImpl implements BbsService{
 		System.out.println(">>>> bbs service readService");
 		return dao.readRow(obj);
 	}
+	@Override
+	public int deleteService(Object obj) {
+		System.out.println(">>>> bbs service deleteService");
+		return dao.deleteRow(obj);
+	}
+	@Override
+	public void upCntService(Object obj) {
+		System.out.println(">>>> bbs service upCntService");
+		dao.upCntRow(obj);
+	}
 
 }

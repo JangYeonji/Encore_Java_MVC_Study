@@ -13,6 +13,7 @@ import encore.bbs.service.BbsService;
 import encore.bbs.service.BbsServiceImpl;
 import encore.ctrl.util.Controller;
 import encore.ctrl.view.View;
+import encore.user.model.vo.UserDTO;
 
 public class ListCtrl implements Controller {
 	private BbsService service;
@@ -29,6 +30,7 @@ public class ListCtrl implements Controller {
 			System.out.println(((BbsVO)obj));
 		}
 		View view = new View();
+
 		
 		HttpSession session = request.getSession(true);
 		session.setAttribute("boards", list);

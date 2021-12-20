@@ -24,17 +24,14 @@ public class ReadCtrl implements Controller{
 		int seq = Integer.parseInt(request.getParameter("seq"));
 		BbsVO bbs = new BbsVO();
 		bbs.setSeq(seq);
+		service.upCntService(bbs);
 		Object obj = service.readService(bbs);
+		
 		System.out.println(obj);
 		
-		HttpSession session = request.getSession();
-		session.setAttribute("read", obj);
-		
-		View view = new View();
-		
-		view.setPath("read.jsp");
-		view.setSend(false);
-		return view;
+		request.setAttribute("bbs", obj);
+
+		return new View("read.jsp",true);
 	}
 
 }

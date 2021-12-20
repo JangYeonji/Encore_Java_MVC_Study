@@ -38,5 +38,15 @@ public class BbsDaoImpl implements BbsDao{
 		System.out.println(">>>> bbs dao readRow");
 		return session.selectOne("encore.bbs.readRow", obj);
 	}
+	@Override
+	public int deleteRow(Object obj) {
+		System.out.println(">>>> bbs dao deleteRow");
+		return session.delete("encore.bbs.deleteRow", obj);
+	}
+	@Override
+	public void upCntRow(Object obj) {
+		System.out.println(">>>> bbs dao upCntRow");
+		session.update("encore.bbs.upCntRow", obj);
+	}
 
 }

@@ -1,6 +1,6 @@
 <%@ page 	language="java" 
-					contentType="text/html; charset=EUC-KR"
-    				pageEncoding="EUC-KR" %>
+					contentType="text/html; charset=utf-8"
+    				pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
@@ -25,24 +25,24 @@ body,td {
 
 	<table align=center width=70% border=0 cellspacing=3 cellpadding=0>
 		<tr>
-			<td align=left><font color=brown>${read.writer }</font>´ÔÀÇ ±ÛÀÔ´Ï´Ù.</td>
-			<td align=right>Á¶È¸¼ö ${read.viewcnt }</td>
+			<td align=left><font color=brown>${loginUser.name }</font>ë‹˜ì˜ ë¡œê·¸ì¸ ì •ë³´ì…ë‹ˆë‹¤.</td>
+			<td align=right>ì¡°íšŒìˆ˜ ${bbs.viewcnt }</td>
 		<tr>
 			<td colspan=2>
 				<table border=0 cellpadding=3 cellspacing=0 width=100%>
 					<tr align=right>
 					<tr align=center>
-						<td bgcolor=#dddddd width=10%>ÀÛ¼ºÀÚ</td>
-						<td align=center bgcolor=#ffffe8><a href="mailto:">${read.writer }</a>
+						<td bgcolor=#dddddd width=10%>ì‘ì„±ì</td>
+						<td align=center bgcolor=#ffffe8><a href="mailto:">${bbs.writer }</a>
 						</td>
 						
 					<tr align=center>
-						<td bgcolor=#dddddd>Á¦ ¸ñ</td>
-						<td bgcolor=#ffffe8 colspan=3>${read.subject }</td>
+						<td bgcolor=#dddddd>ì œ ëª©</td>
+						<td bgcolor=#ffffe8 colspan=3>${bbs.subject }</td>
 					<tr>
-						<td colspan=4><br>${read.content }<br></td>
+						<td colspan=4><br>${bbs.content }<br></td>
 					<tr>
-						<td colspan=4 align=right>${read.regdate }
+						<td colspan=4 align=right>${bbs.regdate }
 						</td>
 					</tr>
 				</table>
@@ -50,10 +50,15 @@ body,td {
 		<tr>
 			<td align=center colspan=2>
 				<hr size=1> 
-				[ <a href="list.encore">¸ñ ·Ï</a> | 
-				  <a href="update.encore">¼ö Á¤</a> | 
-				  <a href="">´ä º¯</a> | 
-				  <a href="delete.encore">»è Á¦</a> ]<br>
+				<c:if test="${loginUser.name == bbs.writer }">
+				[ <a href="list.encore">ëª© ë¡</a> | 
+				  <a href="update.encore?seq=${bbs.seq}">ìˆ˜ ì •</a> | 
+				  <a href="">ë‹µ ë³€</a> | 
+				  <a href="delete.encore?seq=${bbs.seq}">ì‚­ ì œ</a> ]<br>
+				</c:if>
+				<c:if test="${loginUser.name != bbs.writer }">
+				[ <a href="list.encore">ëª© ë¡</a> ] 
+				</c:if>
 			</td>
 		</tr>
 	</table>

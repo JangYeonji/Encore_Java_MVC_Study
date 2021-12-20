@@ -20,6 +20,17 @@
 			FROM BBS_TBL
 			WHERE SEQ=#{seq}
 		</select>
+		
+		<update id="upCntRow" parameterType="bbs_vo">
+			UPDATE BBS_TBL
+			SET VIEWCNT = VIEWCNT+1
+			WHERE SEQ=#{seq}
+		</update>
+		
+		<delete id="deleteRow" parameterType="bbs_vo">
+			DELETE FROM BBS_TBL
+			WHERE SEQ=#{seq}
+		</delete>
 </mapper>
 
 

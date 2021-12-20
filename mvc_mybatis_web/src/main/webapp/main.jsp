@@ -41,15 +41,16 @@
 			<a href="registerForm.encore">[회원가입]</a>
 		</form>
 	</c:if>
+	
 	<c:if test="${ loginUser != null }">
 		<font color="blue">${ loginUser.name }</font> 님 환영합니다!! <!-- name() == getName() -->
 		&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="logout.encore">로그아웃</a>
+		<div align="left">
+			<a href="bbs/list.encore">게시물 목록보기</a>
+		</div>
 	</c:if>
 	</div>
-	
-	<div align="left">
-		<a href="bbs/list.encore">게시물 목록보기</a>
-	</div>
+
 </body>
 </html>

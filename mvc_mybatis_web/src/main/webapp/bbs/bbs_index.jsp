@@ -17,7 +17,7 @@
 	<table align=center border=0 width=100%>
 	<tr>
 		<td align=left >
-			page
+			
 		</td>
 		<td align="right" >
 			<form id="searchFmt" method="post" action="">
