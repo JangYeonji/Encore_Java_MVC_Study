@@ -8,4 +8,5 @@ public interface BbsDao {
 	public Object readRow(Object obj);
 	public int deleteRow(Object obj);
 	public void upCntRow(Object obj);
+	public int updateRow(Object obj);
 }

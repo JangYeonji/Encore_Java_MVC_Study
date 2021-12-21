@@ -8,6 +8,7 @@ import encore.bbs.ctrl.ListCtrl;
 import encore.bbs.ctrl.PostCtrl;
 import encore.bbs.ctrl.PostForm;
 import encore.bbs.ctrl.ReadCtrl;
+import encore.bbs.ctrl.UpdateCtrl;
 import encore.bbs.ctrl.UpdateForm;
 import encore.ctrl.util.Controller;
 import encore.intro.ctrl.IndexCtrl;
@@ -35,6 +36,7 @@ public class BeanFactory {
 		map.put("/pjt/bbs/read.encore", new ReadCtrl());
 		map.put("/pjt/bbs/updateForm.encore", new UpdateForm());
 		map.put("/pjt/bbs/delete.encore", new DeleteCtrl());
+		map.put("/pjt/bbs/update.encore", new UpdateCtrl());
 	}
 	public static BeanFactory getInstance() {
 		if(instance == null) {

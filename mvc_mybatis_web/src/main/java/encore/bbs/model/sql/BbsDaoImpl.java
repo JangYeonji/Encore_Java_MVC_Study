@@ -48,5 +48,10 @@ public class BbsDaoImpl implements BbsDao{
 		System.out.println(">>>> bbs dao upCntRow");
 		session.update("encore.bbs.upCntRow", obj);
 	}
+	@Override
+	public int updateRow(Object obj) {
+		System.out.println(">>>> bbs dao updateRow");
+		return session.update("encore.bbs.updateRow", obj);
+	}
 
 }

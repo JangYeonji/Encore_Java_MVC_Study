@@ -12,25 +12,30 @@ import encore.bbs.service.BbsServiceImpl;
 import encore.ctrl.util.Controller;
 import encore.ctrl.view.View;
 
-public class UpdateForm implements Controller{
+public class UpdateCtrl implements Controller {
 	private BbsService service;
-	public UpdateForm() {
+	public UpdateCtrl() {
 		service = new BbsServiceImpl();
 	}
 	@Override
 	public View execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(">>>> ctrl updateForm execute");
 		request.setCharacterEncoding("UTF-8");
+		String subject = request.getParameter("subject");
+		String content = request.getParameter("content");
 		int seq = Integer.parseInt(request.getParameter("seq"));
 		BbsVO bbs = new BbsVO();
+		bbs.setContent(content);
 		bbs.setSeq(seq);
-		Object obj = service.readService(bbs);
+		bbs.setSubject(subject);
 		
-		System.out.println(obj);
+		int flag = service.updateService(bbs);
+		if(flag!=0) {
+			return new View("read.encore?seq="+seq,true);
+		}else {
+			return new View("updateForm.encore",true);
+		}
 		
-		request.setAttribute("bbs", obj);
-
-		return new View("update.jsp",true);
+		
 	}
 
 }

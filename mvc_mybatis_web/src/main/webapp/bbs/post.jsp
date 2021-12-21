@@ -30,7 +30,7 @@
 		<table border=0 width=100% >
 		<tr>
 		<td width=20% align="right">작성자</td>
-		<td width=80% align="left"><input type=text name="writer" size=10 maxlength=8  ></td>
+		<td width=80% align="left"><input type=text name="writer" size=10 maxlength=8  value="${loginUser.name }"  readonly></td>
 		<tr>
 		<td width=20% align="right">제 목</td>
 		<td width=80% align="left"><input type=text name="subject" size=50 maxlength=30></td>

@@ -27,8 +27,12 @@ public class DeleteCtrl implements Controller{
 		System.out.println(seq);
 		
 		int flag = service.deleteService(bbs);
+		if(flag!=0) {
+			return new View("list.encore",true);
+		}else {
+			return new View("read.encore",false);
+		}
 		
-		return new View("list.encore",false);
 	}
 
 }

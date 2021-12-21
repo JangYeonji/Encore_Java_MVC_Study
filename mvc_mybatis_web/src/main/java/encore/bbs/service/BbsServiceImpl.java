@@ -35,6 +35,11 @@ public class BbsServiceImpl implements BbsService{
 		System.out.println(">>>> bbs service upCntService");
 		dao.upCntRow(obj);
 	}
+	@Override
+	public int updateService(Object obj) {
+		System.out.println(">>>> bbs service updateService");
+		return dao.updateRow(obj);
+	}
 
 
 }

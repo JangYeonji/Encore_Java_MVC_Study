@@ -17,6 +17,7 @@ FROM	USER_TBL ;
 INSERT INTO USER_TBL
 VALUES('jslim','jslim','임정섭',1000);
 
+
 /*SELECT 	*
 FROM	USER_TBL 
 WHERE	ID = ? AND PWD = ? ; 

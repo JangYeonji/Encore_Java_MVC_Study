@@ -26,19 +26,14 @@ public class ListCtrl implements Controller {
 		System.out.println(">>>> list ctrl execute");
 		List<Object> list = service.listService();
 		
-		for(Object obj : list) {
-			System.out.println(((BbsVO)obj));
-		}
-		View view = new View();
-
+//		for(Object obj : list) {
+//			System.out.println(((BbsVO)obj));
+//		}
 		
 		HttpSession session = request.getSession(true);
 		session.setAttribute("boards", list);
 		
-		view.setPath("bbs_index.jsp");
-		view.setSend(true);
-		
-		return view;
+		return new View("bbs_index.jsp",true);
 	
 	}
 	
