@@ -36,4 +36,5 @@ public class BbsServiceImpl implements BbsService{
 		dao.upCntRow(obj);
 	}
 
+
 }

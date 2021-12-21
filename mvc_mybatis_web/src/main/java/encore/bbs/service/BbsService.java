@@ -2,6 +2,8 @@ package encore.bbs.service;
 
 import java.util.List;
 
+import encore.bbs.model.vo.BbsVO;
+
 public interface BbsService {
 	public List<Object> listService();
 	public int postService(Object obj);
