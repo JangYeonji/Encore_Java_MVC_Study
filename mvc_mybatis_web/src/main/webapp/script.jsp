@@ -22,6 +22,11 @@
 		<option>선택하세요</option>
 	</select>
 	
+	<form id="fmt">
+		<input type="text" name="id" id="id">
+		<button type="button" id="sendBtn">send</button>
+	</form>
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript">
 	var obj = {seq:1, title:'공지'}
@@ -54,7 +59,16 @@
 			})
 			$("#model").html(options);
 		}
-
+		$("#sendBtn").on("click", function(){
+				console.log("send button click");
+				id = $("#id").val()
+				if(id==""){
+					alert("아이디를 입력하세요");
+					$("#id").focus();
+					return false;
+				}
+				$("#fmt").prop("method","get").prop("action","xxxx.encore").submit();
+		});
 	});
 	</script>
 </body>

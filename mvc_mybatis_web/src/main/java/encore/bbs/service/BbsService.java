@@ -11,4 +11,5 @@ public interface BbsService {
 	public int 			deleteService(Object obj);
 	public void 		upCntService(Object obj);
 	public int 			updateService(Object obj);
+	public List<Object> searchService(Object obj);
 }

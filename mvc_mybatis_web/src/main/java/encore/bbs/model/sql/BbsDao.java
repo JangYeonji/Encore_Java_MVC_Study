@@ -9,4 +9,5 @@ public interface BbsDao {
 	public int deleteRow(Object obj);
 	public void upCntRow(Object obj);
 	public int updateRow(Object obj);
+	public List<Object> searchRow(Object obj);
 }

@@ -40,6 +40,11 @@ public class BbsServiceImpl implements BbsService{
 		System.out.println(">>>> bbs service updateService");
 		return dao.updateRow(obj);
 	}
+	@Override
+	public List<Object> searchService(Object obj) {
+		System.out.println(">>>> bbs service searchService");
+		return dao.searchRow(obj);
+	}
 
 
 }

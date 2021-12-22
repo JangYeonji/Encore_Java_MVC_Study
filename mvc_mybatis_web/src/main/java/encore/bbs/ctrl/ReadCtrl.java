@@ -30,7 +30,7 @@ public class ReadCtrl implements Controller{
 		System.out.println(obj);
 		
 		request.setAttribute("bbs", obj);
-
+		request.setAttribute("ip", request.getRemoteAddr());
 		return new View("read.jsp",true);
 	}
 

@@ -42,7 +42,7 @@ body,td {
 					<tr>
 						<td colspan=4><br>${bbs.content }<br></td>
 					<tr>
-						<td colspan=4 align=right>${bbs.regdate }
+						<td colspan=4 align=right>${bbs.regdate } & ${ip }
 						</td>
 					</tr>
 				</table>
